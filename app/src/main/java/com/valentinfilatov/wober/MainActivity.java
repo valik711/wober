@@ -3,7 +3,8 @@ package com.valentinfilatov.wober;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,6 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.valentinfilatov.wober.POJO.Domain;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +32,11 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.fab) FloatingActionButton fab;
     @BindView(R.id.drawer_layout) DrawerLayout drawer;
     @BindView(R.id.nav_view) NavigationView navigationView;
+    @BindView(R.id.rvDomains) RecyclerView mRecyclerView;
+
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private StorageReference mStorageRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +44,23 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+        mLayoutManager = new GridLayoutManager(this, 2);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+        mAdapter = new DomainRecyclerViewAdapter(new ArrayList<Domain>(Arrays.asList(new Domain("Ремонт телефонов", "repair.jpeg")
+                , new Domain("Сантехника", "santeh.jpeg"),
+                new Domain("Веб-дизайн", "web-d.jpeg"),
+                new Domain("Грузоперевозки", "cargo.jpeg"),
+                new Domain("Бухгалтеркие услуги", "accountant.jpg"),
+                new Domain("Ремонт авто", "repair.jpeg"),
+                new Domain("Репетиторство", "repair.jpeg"),
+                new Domain("Юридические услуги", "repair.jpeg"),
+                new Domain("Маникюр", "repair.jpeg")
+        )));
+        mRecyclerView.setAdapter(mAdapter);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
