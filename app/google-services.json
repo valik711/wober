@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "683536829874",
+    "firebase_url": "https://wober-dober.firebaseio.com",
+    "project_id": "wober-dober",
+    "storage_bucket": "wober-dober.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683536829874:android:e00ba5789ac551ba",
+        "android_client_info": {
+          "package_name": "com.valentinfilatov.wober"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "683536829874-3fqog7ud6hh6p62cc1apft62lfap19pm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.valentinfilatov.wober",
+            "certificate_hash": "2da9f4629743a5571b98b587490c036f55433cd5"
+          }
+        },
+        {
+          "client_id": "683536829874-o6qj8mhv73qscogr835fn953usi7p79t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdfv3Yn-h-5mvV009nkkbV0belOAk_V8Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "683536829874-o6qj8mhv73qscogr835fn953usi7p79t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
